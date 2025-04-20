@@ -1,0 +1,378 @@
+<html lang="fr">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Scanini - Interface Client
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: "Poppins", sans-serif;
+    }
+   ::-webkit-scrollbar {
+      height: 8px;
+      width: 8px;
+    }
+   ::-webkit-scrollbar-thumb {
+      background-color: #6366f1;
+      border-radius: 10px;
+    }
+   ::-webkit-scrollbar-track {
+      background: #e0e7ff;
+    }
+  </style>
+ </head>
+ <body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-indigo-600 via-purple-700 to-pink-600 text-white shadow-md sticky top-0 z-50">
+   <div class="container mx-auto px-6 py-4 flex items-center justify-between" role="banner">
+    <a class="flex items-center space-x-3" href="#">
+     <img alt="Logo stylisé Scanini avec lettres S en dégradé violet et rose" class="w-12 h-12 rounded-full shadow-lg" height="48" src="https://storage.googleapis.com/a1aa/image/695e58c1-f418-4994-48b1-e1c2647850d6.jpg" width="48"/>
+     <span class="text-3xl font-extrabold tracking-wide drop-shadow-lg">
+      Scanini
+     </span>
+    </a>
+    <nav aria-label="Menu principal" class="hidden md:flex space-x-10 font-semibold text-indigo-200">
+      <a class="hover:text-white transition duration-300" href="#accueil">
+        Accueil
+       </a>
+       <a class="hover:text-white transition duration-300" href="index (4).html">
+        Clients
+       </a>
+       <a class="hover:text-white transition duration-300" href="index (3).html">
+        Admin
+       </a>
+    </nav>
+    <button aria-label="Ouvrir le menu mobile" class="md:hidden text-white focus:outline-none" id="menu-btn">
+     <i class="fas fa-bars fa-lg">
+     </i>
+    </button>
+   </div>
+   <nav aria-label="Menu mobile" class="hidden bg-gradient-to-r from-indigo-600 via-purple-700 to-pink-600 px-6 py-4 space-y-4 font-semibold text-indigo-200 md:hidden" id="mobile-menu">
+    <a class="block hover:text-white transition" href="#accueil">
+     Accueil
+    </a>
+    <a class="block hover:text-white transition" href="#client-interface">
+     Interface Client
+    </a>
+    <a class="block hover:text-white transition" href="#avis-client">
+     Avis Clients
+    </a>
+    <a class="block hover:text-white transition" href="#menu-section">
+     Menu
+    </a>
+   </nav>
+  </header>
+  <main class="flex-grow container mx-auto max-w-6xl px-6 py-16 space-y-20" id="client-interface">
+   <h1 class="text-4xl font-extrabold text-indigo-700 mb-10 text-center">
+    Commande Facile, Paiement Rapide
+   </h1>
+   <p class="max-w-3xl mx-auto text-center text-gray-700 mb-12 text-lg">
+    Accessible sans création de compte, simplement en scannant le QR code affiché dans l’établissement. Une expérience fluide, rapide et complète pour consulter le menu, commander, payer et laisser un avis.
+   </p>
+   <div class="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+    <!-- Menu Consultation -->
+    <article aria-label="Consultation du menu avec images, descriptions et tarifs" class="space-y-6">
+     <h2 class="text-2xl font-semibold text-indigo-600">
+      📱 Consultation du menu
+     </h2>
+     <ul class="space-y-6">
+      <li class="flex space-x-4 items-center">
+       <img alt="Photo d'un plat gastronomique Poulet rôti aux herbes avec sauce et garniture colorée" class="w-24 h-24 rounded-lg object-cover shadow-md flex-shrink-0" height="96" src="https://storage.googleapis.com/a1aa/image/b833d96d-7f8f-4ea1-c0b2-cf36bf13b576.jpg" width="96"/>
+       <div>
+        <h3 class="font-semibold text-lg text-indigo-700">
+         Poulet rôti aux herbes
+        </h3>
+        <p class="text-gray-600">
+         Poulet fermier rôti lentement avec un mélange d’herbes provençales.
+        </p>
+        <p class="font-bold text-indigo-900 mt-1">
+         12,90 €
+        </p>
+       </div>
+      </li>
+      <li class="flex space-x-4 items-center">
+       <img alt="Photo d'une salade fraîche colorée Salade méditerranéenne avec légumes variés" class="w-24 h-24 rounded-lg object-cover shadow-md flex-shrink-0" height="96" src="https://storage.googleapis.com/a1aa/image/afbd3b1a-00db-467a-0ed7-ecf6cca28ab2.jpg" width="96"/>
+       <div>
+        <h3 class="font-semibold text-lg text-indigo-700">
+         Salade méditerranéenne
+        </h3>
+        <p class="text-gray-600">
+         Mélange de légumes frais, olives, feta et vinaigrette maison.
+        </p>
+        <p class="font-bold text-indigo-900 mt-1">
+         9,50 €
+        </p>
+       </div>
+      </li>
+      <li class="flex space-x-4 items-center">
+       <img alt="Photo d'un dessert chocolaté Fondant au chocolat avec coulis rouge et fruits" class="w-24 h-24 rounded-lg object-cover shadow-md flex-shrink-0" height="96" src="https://storage.googleapis.com/a1aa/image/3d071d2e-ccb6-4ccf-3da8-07c0929e5a09.jpg" width="96"/>
+       <div>
+        <h3 class="font-semibold text-lg text-indigo-700">
+         Fondant au chocolat
+        </h3>
+        <p class="text-gray-600">
+         Gâteau au chocolat fondant servi avec un coulis de fruits rouges.
+        </p>
+        <p class="font-bold text-indigo-900 mt-1">
+         6,00 €
+        </p>
+       </div>
+      </li>
+     </ul>
+    </article>
+    <!-- Commande, Paiement & Avis -->
+    <article aria-label="Fonctionnalités de commande, paiement et avis client" class="space-y-8">
+     <div>
+      <h2 class="text-2xl font-semibold text-indigo-600 mb-4">
+       🛒 Commande &amp; Réservation en ligne
+      </h2>
+      <form aria-label="Formulaire de commande ou réservation" class="bg-indigo-50 p-6 rounded-lg shadow-inner space-y-4" id="order-form">
+       <label class="block font-semibold text-indigo-700 mb-1" for="order-item">
+        Choisissez un plat
+       </label>
+       <select class="w-full rounded-md border border-indigo-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400" id="order-item" name="order-item" required="">
+        <option disabled="" selected="" value="">
+         Sélectionnez un plat
+        </option>
+        <option value="Poulet rôti aux herbes">
+         Poulet rôti aux herbes - 12,90 €
+        </option>
+        <option value="Salade méditerranéenne">
+         Salade méditerranéenne - 9,50 €
+        </option>
+        <option value="Fondant au chocolat">
+         Fondant au chocolat - 6,00 €
+        </option>
+       </select>
+       <label class="block font-semibold text-indigo-700 mb-1" for="order-quantity">
+        Quantité
+       </label>
+       <input class="w-full rounded-md border border-indigo-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400" id="order-quantity" min="1" name="order-quantity" required="" type="number" value="1"/>
+       <label class="block font-semibold text-indigo-700 mb-1" for="order-date">
+        Date et heure (pour réservation)
+       </label>
+       <input class="w-full rounded-md border border-indigo-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400" id="order-date" name="order-date" type="datetime-local"/>
+       <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-md transition" type="submit">
+        Passer la commande / Réserver
+       </button>
+      </form>
+     </div>
+     <div>
+      <h2 class="text-2xl font-semibold text-indigo-600 mb-4">
+       💳 Paiement en ligne sécurisé
+      </h2>
+      <p class="text-gray-700 mb-4">
+       Après validation de votre commande, vous serez redirigé vers une page de paiement sécurisée.
+      </p>
+      <button class="w-full bg-yellow-400 hover:bg-yellow-500 text-indigo-900 font-bold py-3 rounded-md transition" id="pay-btn">
+       Payer maintenant
+      </button>
+     </div>
+     <div>
+      <h2 class="text-2xl font-semibold text-indigo-600 mb-4">
+       🌟 Laissez un avis
+      </h2>
+      <form aria-label="Formulaire d'avis client" class="bg-indigo-50 p-6 rounded-lg shadow-inner space-y-4" id="review-form">
+       <label class="block font-semibold text-indigo-700 mb-1" for="review-text">
+        Votre avis
+       </label>
+       <textarea class="w-full rounded-md border border-indigo-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400 resize-none" id="review-text" name="review-text" placeholder="Partagez votre expérience..." required="" rows="3"></textarea>
+       <label class="block font-semibold text-indigo-700 mb-1" for="review-rating">
+        Note
+       </label>
+       <select class="w-full rounded-md border border-indigo-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400" id="review-rating" name="review-rating" required="">
+        <option disabled="" selected="" value="">
+         Choisissez une note
+        </option>
+        <option value="5">
+         5 - Excellent
+        </option>
+        <option value="4">
+         4 - Très bon
+        </option>
+        <option value="3">
+         3 - Bon
+        </option>
+        <option value="2">
+         2 - Moyen
+        </option>
+        <option value="1">
+         1 - Mauvais
+        </option>
+       </select>
+       <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-md transition" type="submit">
+        Envoyer l'avis
+       </button>
+      </form>
+     </div>
+    </article>
+   </div>
+   <!-- Avis Clients Section -->
+   <section aria-label="Avis clients" class="max-w-5xl mx-auto space-y-10" id="avis-client">
+    <h2 class="text-4xl font-extrabold text-indigo-700 text-center">
+     Avis Clients
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+     <article class="bg-white rounded-xl shadow-md p-6 flex flex-col space-y-4" tabindex="0">
+      <div class="flex items-center space-x-4">
+       <img alt="Portrait d'une cliente souriante, femme d'environ 30 ans, cheveux bruns courts" class="w-16 h-16 rounded-full object-cover" height="64" src="https://storage.googleapis.com/a1aa/image/96b36340-366f-4950-24f0-99b5126f7850.jpg" width="64"/>
+       <div>
+        <p class="font-semibold text-indigo-700">
+         Sophie L.
+        </p>
+        <div class="flex text-yellow-400">
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star-half-alt">
+         </i>
+        </div>
+       </div>
+      </div>
+      <p>
+       L'application Scanini a vraiment simplifié ma visite au restaurant. Rapide et intuitive !
+      </p>
+     </article>
+     <article class="bg-white rounded-xl shadow-md p-6 flex flex-col space-y-4" tabindex="0">
+      <div class="flex items-center space-x-4">
+       <img alt="Portrait d'un homme souriant, environ 40 ans, cheveux courts et barbe" class="w-16 h-16 rounded-full object-cover" height="64" src="https://storage.googleapis.com/a1aa/image/18d325cc-cf78-4a7a-07f9-7290c91fc4ee.jpg" width="64"/>
+       <div>
+        <p class="font-semibold text-indigo-700">
+         Marc D.
+        </p>
+        <div class="flex text-yellow-400">
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+        </div>
+       </div>
+      </div>
+      <p>
+       Très pratique pour commander sans attendre le serveur. Je recommande Scanini !
+      </p>
+     </article>
+     <article class="bg-white rounded-xl shadow-md p-6 flex flex-col space-y-4" tabindex="0">
+      <div class="flex items-center space-x-4">
+       <img alt="Portrait d'une femme souriante, environ 25 ans, cheveux blonds longs" class="w-16 h-16 rounded-full object-cover" height="64" src="https://storage.googleapis.com/a1aa/image/584cf931-a39d-40fa-82aa-97bd9a6fbcff.jpg" width="64"/>
+       <div>
+        <p class="font-semibold text-indigo-700">
+         Claire M.
+        </p>
+        <div class="flex text-yellow-400">
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star-half-alt">
+         </i>
+         <i class="far fa-star">
+         </i>
+        </div>
+       </div>
+      </div>
+      <p>
+       Interface claire et simple d’utilisation. Le paiement en ligne est rassurant.
+      </p>
+     </article>
+    </div>
+   </section>
+  </main>
+  <footer class="bg-gradient-to-r from-indigo-600 via-purple-700 to-pink-600 text-indigo-100 py-8 mt-20">
+   <div class="container mx-auto px-6 max-w-6xl flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+    <p>
+     © 2024 Scanini. Tous droits réservés.
+    </p>
+    <div class="flex space-x-6 text-xl">
+     <a aria-label="Facebook" class="hover:text-yellow-400 transition" href="#">
+      <i class="fab fa-facebook-f">
+      </i>
+     </a>
+     <a aria-label="Twitter" class="hover:text-yellow-400 transition" href="#">
+      <i class="fab fa-twitter">
+      </i>
+     </a>
+     <a aria-label="Instagram" class="hover:text-yellow-400 transition" href="#">
+      <i class="fab fa-instagram">
+      </i>
+     </a>
+     <a aria-label="LinkedIn" class="hover:text-yellow-400 transition" href="#">
+      <i class="fab fa-linkedin-in">
+      </i>
+     </a>
+    </div>
+   </div>
+  </footer>
+  <script>
+   // Mobile menu toggle
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    // Order form submission
+    const orderForm = document.getElementById("order-form");
+    orderForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const item = orderForm["order-item"].value;
+      const quantity = orderForm["order-quantity"].value;
+      const date = orderForm["order-date"].value;
+      if (!item || quantity < 1) {
+        alert("Veuillez sélectionner un plat et une quantité valide.");
+        return;
+      }
+      alert(
+        `Commande reçue : ${quantity} x ${item}${
+          date ? " pour le " + new Date(date).toLocaleString() : ""
+        }.\nVous serez redirigé vers le paiement sécurisé.`
+      );
+      orderForm.reset();
+    });
+
+    // Payment button
+    const payBtn = document.getElementById("pay-btn");
+    payBtn.addEventListener("click", () => {
+      alert(
+        "Redirection vers la page de paiement sécurisé (simulation). Merci de votre confiance."
+      );
+    });
+
+    // Review form submission
+    const reviewForm = document.getElementById("review-form");
+    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+    reviewForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const text = reviewForm["review-text"].value.trim();
+      const rating = reviewForm["review-rating"].value;
+      if (!text || !rating) {
+        alert("Veuillez remplir tous les champs de l'avis.");
+        return;
+      }
+      reviews.push({ text, rating });
+      localStorage.setItem("reviews", JSON.stringify(reviews));
+      alert("Merci pour votre avis !");
+      reviewForm.reset();
+    });
+  </script>
+ </body>
+</html>

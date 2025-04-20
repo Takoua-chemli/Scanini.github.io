@@ -1,0 +1,439 @@
+<html lang="fr">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Scanini - Interface Professionnelle Admin
+  </title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: "Poppins", sans-serif;
+    }
+    ::-webkit-scrollbar {
+      height: 8px;
+      width: 8px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #6366f1;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #e0e7ff;
+    }
+  </style>
+ </head>
+ <body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-indigo-600 via-purple-700 to-pink-600 text-white shadow-md sticky top-0 z-50">
+   <div class="container mx-auto px-6 py-4 flex items-center justify-between" role="banner">
+    <a class="flex items-center space-x-3" href="#">
+     <img alt="Logo stylisé Scanini avec lettres S en dégradé violet et rose" class="w-12 h-12 rounded-full shadow-lg" height="48" src="https://storage.googleapis.com/a1aa/image/695e58c1-f418-4994-48b1-e1c2647850d6.jpg" width="48"/>
+     <span class="text-3xl font-extrabold tracking-wide drop-shadow-lg">
+      Scanini
+     </span>
+    </a>
+    <nav aria-label="Menu principal" class="hidden md:flex space-x-10 font-semibold text-indigo-200">
+      <a class="hover:text-white transition duration-300" href="index (5).html">
+        Accueil
+       </a>
+       <a class="hover:text-white transition duration-300" href="index (4).html">
+        Clients
+       </a>
+       <a class="hover:text-white transition duration-300" href="index (3).html">
+        Admin
+       </a>
+    </nav>
+    <button aria-label="Ouvrir le menu mobile" class="md:hidden text-white focus:outline-none" id="menu-btn">
+     <i class="fas fa-bars fa-lg"></i>
+    </button>
+   </div>
+   <nav aria-label="Menu mobile" class="hidden bg-gradient-to-r from-indigo-600 via-purple-700 to-pink-600 px-6 py-4 space-y-4 font-semibold text-indigo-200 md:hidden" id="mobile-menu">
+    <a class="hover:text-white transition duration-300" href="index (5).html">
+      Accueil
+     </a>
+     <a class="hover:text-white transition duration-300" href="index (4).html">
+      Clients
+     </a>
+     <a class="hover:text-white transition duration-300" href="index (3).html">
+      Admin
+     </a>
+   </nav>
+  </header>
+  <main class="flex-grow container mx-auto max-w-7xl px-6 py-16 space-y-20">
+   <!-- Gestion du menu -->
+   <section aria-label="Gestion du menu" id="gestion-menu" class="bg-white rounded-xl shadow-lg p-8">
+    <h2 class="text-4xl font-extrabold text-indigo-700 mb-8 text-center">
+     📝 Gestion du menu
+    </h2>
+    <form class="space-y-6 bg-indigo-50 p-6 rounded-lg shadow-inner max-w-4xl mx-auto" id="menu-management-form">
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div>
+       <label class="block font-semibold text-indigo-700 mb-1" for="product-name">
+        Nom du produit
+       </label>
+       <input class="w-full rounded-md border border-indigo-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400" id="product-name" name="product-name" placeholder="Ex: Poulet rôti" required="" type="text"/>
+      </div>
+      <div>
+       <label class="block font-semibold text-indigo-700 mb-1" for="product-description">
+        Description
+       </label>
+       <input class="w-full rounded-md border border-indigo-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400" id="product-description" name="product-description" placeholder="Description courte" required="" type="text"/>
+      </div>
+      <div>
+       <label class="block font-semibold text-indigo-700 mb-1" for="product-price">
+        Prix (€)
+       </label>
+       <input class="w-full rounded-md border border-indigo-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400" id="product-price" min="0" name="product-price" placeholder="Ex: 12.90" required="" step="0.01" type="number"/>
+      </div>
+     </div>
+     <div>
+      <label class="block font-semibold text-indigo-700 mb-1" for="product-image">
+       Image du produit (URL)
+      </label>
+      <input class="w-full rounded-md border border-indigo-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400" id="product-image" name="product-image" placeholder="https://exemple.com/image.jpg" required="" type="url"/>
+     </div>
+     <div class="flex space-x-4 justify-center">
+      <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-md transition" type="submit">
+       Ajouter / Modifier produit
+      </button>
+      <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-md transition" id="delete-product-btn" type="button">
+       Supprimer produit
+      </button>
+     </div>
+    </form>
+    <div class="mt-10 overflow-x-auto rounded-lg shadow-md max-w-6xl mx-auto">
+     <table class="min-w-full divide-y divide-indigo-200">
+      <thead class="bg-indigo-100">
+       <tr>
+        <th class="px-6 py-3 text-left text-xs font-semibold text-indigo-600 uppercase tracking-wider" scope="col">
+         Image
+        </th>
+        <th class="px-6 py-3 text-left text-xs font-semibold text-indigo-600 uppercase tracking-wider" scope="col">
+         Nom
+        </th>
+        <th class="px-6 py-3 text-left text-xs font-semibold text-indigo-600 uppercase tracking-wider" scope="col">
+         Description
+        </th>
+        <th class="px-6 py-3 text-left text-xs font-semibold text-indigo-600 uppercase tracking-wider" scope="col">
+         Prix (€)
+        </th>
+       </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-indigo-200" id="menu-items-table">
+      </tbody>
+     </table>
+    </div>
+   </section>
+   <!-- Statistiques -->
+   <section aria-label="Statistiques de consultation et commande" id="statistiques" class="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
+    <h2 class="text-4xl font-extrabold text-indigo-700 mb-8 text-center">
+     📈 Statistiques
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center bg-indigo-50 p-6 rounded-lg shadow-inner">
+     <div>
+      <p class="text-4xl font-extrabold text-indigo-700" id="stat-visits">
+       0
+      </p>
+      <p class="text-indigo-600 font-semibold">
+       Consultations du menu
+      </p>
+     </div>
+     <div>
+      <p class="text-4xl font-extrabold text-indigo-700" id="stat-orders">
+       0
+      </p>
+      <p class="text-indigo-600 font-semibold">
+       Commandes passées
+      </p>
+     </div>
+     <div>
+      <p class="text-4xl font-extrabold text-indigo-700" id="stat-reviews">
+       0
+      </p>
+      <p class="text-indigo-600 font-semibold">
+       Avis reçus
+      </p>
+     </div>
+    </div>
+   </section>
+   <!-- Avis Clients -->
+   <section aria-label="Gestion des avis clients" id="avis-clients" class="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
+    <h2 class="text-4xl font-extrabold text-indigo-700 mb-8 text-center">
+     💬 Avis clients
+    </h2>
+    <div class="max-h-64 overflow-y-auto space-y-4 bg-indigo-50 p-6 rounded-lg shadow-inner" id="reviews-list">
+     <p class="text-indigo-600 font-semibold text-center">
+      Aucun avis pour le moment.
+     </p>
+    </div>
+   </section>
+   <!-- Réclamations -->
+   <section aria-label="Système de réclamation" id="reclamations" class="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
+    <h2 class="text-4xl font-extrabold text-indigo-700 mb-8 text-center">
+     📮 Réclamations &amp; Suggestions
+    </h2>
+    <form aria-label="Formulaire de réclamation" class="bg-indigo-50 p-6 rounded-lg shadow-inner space-y-4 max-w-3xl mx-auto" id="reclamation-form">
+     <label class="block font-semibold text-indigo-700 mb-1" for="reclamation-text">
+      Votre message
+     </label>
+     <textarea class="w-full rounded-md border border-indigo-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400 resize-none" id="reclamation-text" name="reclamation-text" placeholder="Envoyez-nous vos remarques, suggestions ou signalez un problème technique" required="" rows="4"></textarea>
+     <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-md transition w-full" type="submit">
+      Envoyer la réclamation
+     </button>
+    </form>
+   </section>
+   <!-- Personnalisation -->
+   <section aria-label="Personnalisation du QR code et de la page d'accueil" id="personnalisation" class="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
+    <h2 class="text-4xl font-extrabold text-indigo-700 mb-8 text-center">
+     🎨 Personnalisation
+    </h2>
+    <form aria-label="Formulaire de personnalisation" class="bg-indigo-50 p-6 rounded-lg shadow-inner space-y-6 max-w-3xl mx-auto" id="customization-form">
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+       <label class="block font-semibold text-indigo-700 mb-1" for="qr-color">
+        Couleur principale du QR Code
+       </label>
+       <input class="w-full h-12 rounded-md border border-indigo-300 cursor-pointer" id="qr-color" name="qr-color" type="color" value="#6366f1"/>
+      </div>
+      <div>
+       <label class="block font-semibold text-indigo-700 mb-1" for="homepage-bg">
+        Couleur de fond de la page d'accueil
+       </label>
+       <input class="w-full h-12 rounded-md border border-indigo-300 cursor-pointer" id="homepage-bg" name="homepage-bg" type="color" value="#ede9fe"/>
+      </div>
+     </div>
+     <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-md transition w-full" type="submit">
+      Appliquer la personnalisation
+     </button>
+    </form>
+    <div class="mt-8 flex justify-center">
+     <img alt="Aperçu du QR Code personnalisé" class="rounded-lg shadow-lg" height="200" id="custom-qr-preview" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https://scanini.tn" width="200"/>
+    </div>
+   </section>
+  </main>
+  <footer class="bg-gradient-to-r from-indigo-600 via-purple-700 to-pink-600 text-indigo-100 py-8 mt-20">
+   <div class="container mx-auto px-6 max-w-6xl flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+    <p>
+     © 2024 Scanini. Tous droits réservés.
+    </p>
+    <div class="flex space-x-6 text-xl">
+     <a aria-label="Facebook" class="hover:text-yellow-400 transition" href="#">
+      <i class="fab fa-facebook-f"></i>
+     </a>
+     <a aria-label="Twitter" class="hover:text-yellow-400 transition" href="#">
+      <i class="fab fa-twitter"></i>
+     </a>
+     <a aria-label="Instagram" class="hover:text-yellow-400 transition" href="#">
+      <i class="fab fa-instagram"></i>
+     </a>
+     <a aria-label="LinkedIn" class="hover:text-yellow-400 transition" href="#">
+      <i class="fab fa-linkedin-in"></i>
+     </a>
+    </div>
+   </div>
+  </footer>
+  <script>
+   // Mobile menu toggle
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    // Admin Interface: Menu management
+    const menuForm = document.getElementById("menu-management-form");
+    const menuTableBody = document.getElementById("menu-items-table");
+    const deleteBtn = document.getElementById("delete-product-btn");
+
+    let menuItems = JSON.parse(localStorage.getItem("menuItems")) || [];
+
+    function renderMenuItems() {
+      menuTableBody.innerHTML = "";
+      if (menuItems.length === 0) {
+        menuTableBody.innerHTML =
+          '<tr><td colspan="4" class="text-center py-6 text-indigo-600 font-semibold">Aucun produit ajouté.</td></tr>';
+        return;
+      }
+      menuItems.forEach((item, index) => {
+        const tr = document.createElement("tr");
+        tr.classList.add("hover:bg-indigo-50", "cursor-pointer");
+        tr.setAttribute("data-index", index);
+        tr.innerHTML = `
+          <td class="px-6 py-4 whitespace-nowrap">
+            <img src="${item.image}" alt="Image du produit ${item.name}" class="w-16 h-16 rounded-md object-cover" width="64" height="64" />
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap font-semibold text-indigo-700">${item.name}</td>
+          <td class="px-6 py-4 whitespace-nowrap text-indigo-600">${item.description}</td>
+          <td class="px-6 py-4 whitespace-nowrap font-bold text-indigo-700">${item.price.toFixed(
+            2
+          )} €</td>
+        `;
+        menuTableBody.appendChild(tr);
+      });
+    }
+
+    menuTableBody.addEventListener("click", (e) => {
+      let tr = e.target.closest("tr");
+      if (!tr) return;
+      const index = tr.getAttribute("data-index");
+      if (index === null) return;
+      const item = menuItems[index];
+      menuForm["product-name"].value = item.name;
+      menuForm["product-description"].value = item.description;
+      menuForm["product-price"].value = item.price;
+      menuForm["product-image"].value = item.image;
+      menuForm.setAttribute("data-edit-index", index);
+    });
+
+    menuForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = menuForm["product-name"].value.trim();
+      const description = menuForm["product-description"].value.trim();
+      const price = parseFloat(menuForm["product-price"].value);
+      const image = menuForm["product-image"].value.trim();
+
+      if (!name || !description || isNaN(price) || price < 0 || !image) {
+        alert("Veuillez remplir correctement tous les champs.");
+        return;
+      }
+
+      const editIndex = menuForm.getAttribute("data-edit-index");
+      if (editIndex !== null) {
+        menuItems[editIndex] = { name, description, price, image };
+        menuForm.removeAttribute("data-edit-index");
+      } else {
+        menuItems.push({ name, description, price, image });
+      }
+      localStorage.setItem("menuItems", JSON.stringify(menuItems));
+      renderMenuItems();
+      menuForm.reset();
+      updateStats();
+    });
+
+    deleteBtn.addEventListener("click", () => {
+      const editIndex = menuForm.getAttribute("data-edit-index");
+      if (editIndex === null) {
+        alert("Veuillez sélectionner un produit à supprimer en cliquant dessus.");
+        return;
+      }
+      if (
+        confirm(
+          `Voulez-vous vraiment supprimer le produit "${menuItems[editIndex].name}" ?`
+        )
+      ) {
+        menuItems.splice(editIndex, 1);
+        localStorage.setItem("menuItems", JSON.stringify(menuItems));
+        renderMenuItems();
+        menuForm.reset();
+        menuForm.removeAttribute("data-edit-index");
+        updateStats();
+      }
+    });
+
+    renderMenuItems();
+
+    // Admin Interface: Reviews management
+    const reviewsList = document.getElementById("reviews-list");
+    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+    function renderReviews() {
+      if (reviews.length === 0) {
+        reviewsList.innerHTML =
+          '<p class="text-indigo-600 font-semibold text-center">Aucun avis pour le moment.</p>';
+        return;
+      }
+      reviewsList.innerHTML = "";
+      reviews.forEach((rev, i) => {
+        const div = document.createElement("div");
+        div.className =
+          "bg-white rounded-md p-4 shadow-sm border border-indigo-200 flex flex-col space-y-1";
+        div.innerHTML = `
+          <div class="flex justify-between items-center">
+            <p class="font-semibold text-indigo-700">Note: ${rev.rating} / 5</p>
+            <button aria-label="Supprimer avis" data-index="${i}" class="text-red-500 hover:text-red-700 focus:outline-none">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+          <p class="text-indigo-600">${rev.text}</p>
+        `;
+        reviewsList.appendChild(div);
+      });
+    }
+    renderReviews();
+
+    reviewsList.addEventListener("click", (e) => {
+      if (
+        e.target.closest("button") &&
+        e.target.closest("button").hasAttribute("data-index")
+      ) {
+        const index = e.target.closest("button").getAttribute("data-index");
+        if (
+          confirm(
+            "Voulez-vous vraiment supprimer cet avis ? Cette action est irréversible."
+          )
+        ) {
+          reviews.splice(index, 1);
+          localStorage.setItem("reviews", JSON.stringify(reviews));
+          renderReviews();
+          updateStats();
+        }
+      }
+    });
+
+    // Admin Interface: Statistics simulation
+    const statVisits = document.getElementById("stat-visits");
+    const statOrders = document.getElementById("stat-orders");
+    const statReviews = document.getElementById("stat-reviews");
+
+    function updateStats() {
+      statVisits.textContent = menuItems.length * 25 + 100;
+      statOrders.textContent = menuItems.length * 10 + 50;
+      statReviews.textContent = reviews.length;
+    }
+    updateStats();
+
+    // Admin Interface: Reclamation form
+    const reclamationForm = document.getElementById("reclamation-form");
+    reclamationForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const message = reclamationForm["reclamation-text"].value.trim();
+      if (!message) {
+        alert("Veuillez écrire un message.");
+        return;
+      }
+      alert(
+        "Merci pour votre message. Nous prendrons en compte votre réclamation ou suggestion."
+      );
+      reclamationForm.reset();
+    });
+
+    // Admin Interface: Customization form
+    const customizationForm = document.getElementById("customization-form");
+    const qrColorInput = document.getElementById("qr-color");
+    const homepageBgInput = document.getElementById("homepage-bg");
+    const qrPreview = document.getElementById("custom-qr-preview");
+
+    function updateQrPreview() {
+      const color = qrColorInput.value.replace("#", "");
+      const url = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=${color}&data=https://scanini.tn`;
+      qrPreview.src = url;
+    }
+    qrColorInput.addEventListener("input", updateQrPreview);
+
+    customizationForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const bgColor = homepageBgInput.value;
+      const qrColor = qrColorInput.value;
+      alert(
+        "Personnalisation appliquée : couleur de fond et couleur principale du QR Code mises à jour."
+      );
+      updateQrPreview();
+    });
+
+    updateQrPreview();
+  </script>
+ </body>
+</html>
